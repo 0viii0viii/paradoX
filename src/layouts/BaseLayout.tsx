@@ -1,6 +1,6 @@
 import React from "react";
-import DragWindowRegion from "@/components/DragWindowRegion";
-import NavigationMenu from "@/components/template/NavigationMenu";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/AppSidebar";
 
 export default function BaseLayout({
   children,
@@ -8,10 +8,12 @@ export default function BaseLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <DragWindowRegion title="electron-shadcn" />
-      <NavigationMenu />
-      <main className="h-screen p-2 pb-20">{children}</main>
-    </>
+    <SidebarProvider className="pt-5">
+      <AppSidebar />
+      <main>
+        <SidebarTrigger className="h-8 w-8" />
+        {children}
+      </main>
+    </SidebarProvider>
   );
 }
