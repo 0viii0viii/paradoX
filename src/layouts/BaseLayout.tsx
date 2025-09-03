@@ -13,7 +13,7 @@ export default function BaseLayout({
       <DragWindowRegion />
       <SidebarProvider>
         <AppSidebar />
-        <main className="h-full w-full bg-black">{children}</main>
+        <main className="bg-background h-full w-full">{children}</main>
       </SidebarProvider>
     </div>
   );

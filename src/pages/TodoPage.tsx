@@ -65,7 +65,7 @@ function TodoPage() {
       </div>
       <div className="flex gap-2">
         <Input
-          placeholder="할 일을 입력하세요..."
+          placeholder="할 일을 입력하세요."
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
           onKeyPress={handleKeyPress}

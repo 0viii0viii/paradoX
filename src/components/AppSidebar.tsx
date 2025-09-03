@@ -10,6 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { UserProfile } from "@/components/UserProfile";
 import { Link } from "@tanstack/react-router";
 
 // Menu items.
@@ -36,8 +37,14 @@ export function AppSidebar() {
     <Sidebar collapsible="none">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>paradoX</SidebarGroupLabel>
-          <SidebarGroupContent>
+          <SidebarGroupLabel>
+            <UserProfile
+              userName="이상헌"
+              userEmail="ffff00yllw@gmail.com"
+              avatarSrc="https://github.com/shadcn.png"
+            />
+          </SidebarGroupLabel>
+          <SidebarGroupContent className="mt-2">
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
