@@ -1,6 +1,7 @@
-import React from "react";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
+import DragWindowRegion from "@/components/DragWindowRegion";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import React from "react";
 
 export default function BaseLayout({
   children,
@@ -8,12 +9,12 @@ export default function BaseLayout({
   children: React.ReactNode;
 }) {
   return (
-    <SidebarProvider className="pt-5">
-      <AppSidebar />
-      <main>
-        <SidebarTrigger className="h-8 w-8" />
-        {children}
-      </main>
-    </SidebarProvider>
+    <div className="flex h-screen flex-col">
+      <DragWindowRegion />
+      <SidebarProvider>
+        <AppSidebar />
+        <main className="h-full w-full bg-black">{children}</main>
+      </SidebarProvider>
+    </div>
   );
 }

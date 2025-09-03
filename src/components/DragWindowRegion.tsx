@@ -4,7 +4,7 @@ import {
   minimizeWindow,
 } from "@/helpers/window_helpers";
 import { isMacOS } from "@/utils/platform";
-import React, { type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 interface DragWindowRegionProps {
   title?: ReactNode;
@@ -20,7 +20,7 @@ export default function DragWindowRegion({ title }: DragWindowRegionProps) {
           </div>
         )}
         {isMacOS() && (
-          <div className="flex flex-1 p-2">
+          <div className="flex h-8 flex-1">
             {/* Maintain the same height but do not display content */}
           </div>
         )}

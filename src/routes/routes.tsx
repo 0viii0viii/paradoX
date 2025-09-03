@@ -1,7 +1,8 @@
+import MemoPage from "@/pages/MemoPage";
+import TodoPage from "@/pages/TodoPage";
 import { createRoute } from "@tanstack/react-router";
-import { RootRoute } from "./__root";
 import HomePage from "../pages/HomePage";
-import SecondPage from "@/pages/SecondPage";
+import { RootRoute } from "./__root";
 
 // TODO: Steps to add a new route:
 // 1. Create a new page component in the '../pages/' directory (e.g., NewPage.tsx)
@@ -28,10 +29,20 @@ export const HomeRoute = createRoute({
   component: HomePage,
 });
 
-export const SecondPageRoute = createRoute({
+export const MemoRoute = createRoute({
   getParentRoute: () => RootRoute,
-  path: "/second-page",
-  component: SecondPage,
+  path: "/memo",
+  component: MemoPage,
 });
 
-export const rootTree = RootRoute.addChildren([HomeRoute, SecondPageRoute]);
+export const TodoRoute = createRoute({
+  getParentRoute: () => RootRoute,
+  path: "/todo",
+  component: TodoPage,
+});
+
+export const rootTree = RootRoute.addChildren([
+  HomeRoute,
+  MemoRoute,
+  TodoRoute,
+]);
