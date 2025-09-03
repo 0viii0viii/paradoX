@@ -21,4 +21,25 @@ interface ElectronWindow {
 declare interface Window {
   themeMode: ThemeModeContext;
   electronWindow: ElectronWindow;
+  todoAPI: {
+    getAllTodos: () => Promise<
+      import("./helpers/ipc/database/todo-database").Todo[]
+    >;
+    addTodo: (
+      text: string,
+    ) => Promise<import("./helpers/ipc/database/todo-database").Todo>;
+    updateTodo: (
+      id: number,
+      updates: Partial<
+        Pick<
+          import("./helpers/ipc/database/todo-database").Todo,
+          "text" | "completed"
+        >
+      >,
+    ) => Promise<import("./helpers/ipc/database/todo-database").Todo | null>;
+    deleteTodo: (id: number) => Promise<boolean>;
+    getTodoById: (
+      id: number,
+    ) => Promise<import("./helpers/ipc/database/todo-database").Todo | null>;
+  };
 }
