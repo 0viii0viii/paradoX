@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Plus, Trash2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface Todo {
   id: number;
@@ -140,19 +140,6 @@ function TodoPage() {
                 </CardContent>
               </Card>
             ))}
-
-            {todos.length === 0 && (
-              <Card>
-                <CardContent className="p-8 text-center">
-                  <p className="text-muted-foreground">
-                    아직 할 일이 없습니다.
-                  </p>
-                  <p className="text-muted-foreground">
-                    위에서 새로운 할 일을 추가해보세요!
-                  </p>
-                </CardContent>
-              </Card>
-            )}
           </>
         )}
       </div>
